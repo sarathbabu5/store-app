@@ -31,15 +31,12 @@ const Navbar = () => {
       <div className="navbar align-element">
         <div className="navbar-start">
           {/* {title } */}
-          <NavLink
-            to="/"
-            className="sm:hidden md:flex  btn btn-primary text-3xl"
-          >
+          <NavLink to="/" className="hidden lg:flex btn btn-primary text-3xl">
             Store
           </NavLink>
           {/* Dropdown  */}
           <div className="dropdown">
-            <label className="btn btn-ghost md:hidden">
+            <label className="btn btn-ghost lg:hidden">
               <FaBarsStaggered tabIndex={0} className="h-6 w-6" />
             </label>
             <ul
@@ -50,7 +47,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <div className="navbar-center sm:hidden md:flex  ">
+        <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal">
             <NavLinks />
           </ul>
