@@ -1,23 +1,34 @@
 import React from "react";
 import { customFetch } from "../utils";
-import ProductList from "../components/ProductList";
+import { ProductsContainer, Filter } from "../components";
+import PaginationContainer from "../components/PaginationContainer";
 
 const url = "/products";
 
 export const loader = async ({ request }) => {
-  const response = await customFetch(url);
+  // const params = new URL(request.url).searchParams.get("search");
+  // console.log(params);
+  const params = Object.fromEntries([
+    ...new URL(request.url).searchParams.entries(),
+  ]);
+
+  const response = await customFetch(url, {
+    params,
+  });
   const products = response.data.data;
   const meta = response.data.meta;
-  return { products, meta };
+
+  return { products, meta, params };
 };
 
 const Products = () => {
   return (
     <>
-      {/* filter */}
-      {/* productcontainer */}
-      <ProductList />
-      {/* pagination */}
+      <Filter />
+
+      <ProductsContainer />
+
+      <PaginationContainer />
     </>
   );
 };
