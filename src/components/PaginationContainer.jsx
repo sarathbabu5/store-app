@@ -29,13 +29,14 @@ const PaginationContainer = () => {
         >
           prev
         </button>
-        {pages.map((pageNumber) => {
+        {pages.map((pageNumber, index) => {
           return (
             <button
               className={`btn btn-xs sm:btn-md border-none join-item ${
                 pageNumber === page ? "bg-base-300 border-base-300" : ""
               }`}
               onClick={() => handlePageChange(pageNumber)}
+              key={index}
             >
               {pageNumber}
             </button>
